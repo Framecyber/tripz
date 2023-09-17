@@ -1,6 +1,8 @@
-FROM node:18 AS builder
+FROM node:18-alpine AS builder
 WORKDIR /usr/src/app
 COPY . .
+RUN npm install
+RUN npm install -g npm@10.1.0
 RUN npm run build
 
 ### STAGE 2: Run ###
