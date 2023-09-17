@@ -1,0 +1,34 @@
+<!-- <form action="/process" method="post" >
+    <div class="row d-flex align-items-center">
+        <div class="col d-flex align-items-center">
+            
+        </div>
+        <div class="col">
+            <label for="name">File :</label>
+            <input type="file" id="name" name="name" required>
+        </div>
+    </div>
+    
+    <label for="result">OCR Result:</label>
+    <input type="submit" value="Submit">
+</form> -->
+<div class="text-center mt-5 mb-5">
+    <h1>User Input Form</h1>
+</div>
+<div class="row justify-content-center mb-5">
+    <div class="col-10 col-md-5 text-center">
+        <img *ngIf="url" [src]="url" class="img-fluid">
+        <img *ngIf="!url" src="assets/id-card.jpeg" class="img-fluid" alt="...">
+        <input type="file" class="form-control mt-4" (change)="onChange($event)">
+    </div>
+    <div>
+    </div>
+
+    <div class="text-center mt-3" *ngIf="url">
+        <button type="button" class="btn btn-primary" (click)="postOcr()" [disabled]="btnStatus">Submit</button>
+    </div>
+
+    <div class="col-10 col-md-5 text-center">
+        <textarea class="form-control mt-3" rows="10" *ngIf="ocrResult" [value]="ocrResult"></textarea>
+    </div>
+</div>
